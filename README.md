@@ -6,4 +6,4 @@ The goal is to turn your ip into (whatheveryouwant).join.tectrix.dev so you can 
 Support for things other than minecraft java is probably not going to be implemented as minecraft java has the most server hosters using playit.
 You can always make a feature request if you really want your type of server to be implemented.
 Authentication is done using github, one account, one server prefix. Making alts is against my TOS and github's TOS and can get you banned on both platforms.
-Your github account needs to be older than a day to make a subdomain to prevent botting. Enabling 2FA on your github account bypasses this requirement. 
+Your github account needs to be older than a day to make a subdomain to prevent botting. Getting some followers or making some repo's or especially both can solve this issue.

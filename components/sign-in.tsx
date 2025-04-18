@@ -15,7 +15,7 @@ export default async function SignIn() {
 			}}
 		>
 			<button
-				className="bg-white mx-5 p-2 font-bold text-black rounded-lg cursor-pointer flex items-center justify-items-center gap-3"
+				className="bg-white md:mx-5 p-2 font-bold text-black rounded-lg cursor-pointer flex items-center justify-items-center gap-3 mx-5"
 				type="submit"
 			>
 				<Image
