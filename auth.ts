@@ -2,6 +2,12 @@ import NextAuth from "next-auth";
 import { NextAuthConfig } from "next-auth";
 import GitHub from "next-auth/providers/github";
 
+declare module "next-auth" {
+	interface Session {
+		profile: any;
+	}
+}
+
 export const config = {
 	theme: {
 		logo: "https://next-auth.js.org/img/logo/logo-sm.png",
