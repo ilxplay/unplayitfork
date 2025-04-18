@@ -4,6 +4,7 @@ import { Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/footer";
+import Nav from "@/components/nav";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -57,6 +58,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[url(/bg.webp)] bg-no-repeat bg-cover bg-center bg-fixed`}
 			>
+				<Nav />
 				{children}
 				<Footer />
 				<Analytics />
