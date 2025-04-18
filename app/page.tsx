@@ -27,7 +27,7 @@ export default async function Home() {
 				</h1>
 				<SignIn />
 			</nav>
-			<p>{JSON.stringify(session)}</p>
+			<p>{JSON.stringify(session || "no user logged in")}</p>
 		</main>
 	);
 }
