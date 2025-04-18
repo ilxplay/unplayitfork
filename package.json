@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
     "@vercel/analytics": "^1.5.0",
     "next": "15.3.1",
     "next-auth": "5.0.0-beta.25",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "serverless~": "link:\u001b[200~@neondatabase/serverless~"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

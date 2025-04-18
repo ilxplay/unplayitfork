@@ -7,3 +7,7 @@ Support for things other than minecraft java is probably not going to be impleme
 You can always make a feature request if you really want your type of server to be implemented.
 Authentication is done using github, one account, one server prefix. Making alts is against my TOS and github's TOS and can get you banned on both platforms.
 Your github account needs to be older than a day to make a subdomain to prevent botting. Getting some followers or making some repo's or especially both can solve this issue.
+
+todo:
+- [ ] add functionality
+- [ ] mobile ui improvements

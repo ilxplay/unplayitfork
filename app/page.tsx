@@ -3,6 +3,7 @@ import { Rubik_Mono_One } from "next/font/google";
 import SignIn from "@/components/sign-in";
 import { auth } from "@/auth";
 import validateuser from "@/components/isusergoodenough";
+import InputComponent from "@/components/input";
 
 const rubikMonoOne = Rubik_Mono_One({
 	subsets: ["latin"],
@@ -30,15 +31,26 @@ export default async function Home() {
 				<SignIn />
 			</nav>
 			{session ? (
-				<p
-					className={`text-center font-bold text-3xl ${
-						valid ? "text-green-600" : "text-red-600"
-					}`}
-				>
-					{valid
-						? "account allowed"
-						: "account suspected to be bot account, view the project's readme to resolve this"}
-				</p>
+				<div>
+					{valid ? (
+						<>
+							<InputComponent />
+							<Image
+								className="w-5/6 mx-auto my-5 rounded-xl"
+								src="/instruction.png"
+								width={3200}
+								height={3200}
+								quality={100}
+								alt="tutorial"
+							/>
+						</>
+					) : (
+						<p className="text-center font-bold text-3xl text-red-600">
+							account suspected to be bot account, view the project's readme to
+							resolve this
+						</p>
+					)}
+				</div>
 			) : (
 				<div className="text-center m-5 font-bold bg-black/75 backdrop-blur-lg p-10 rounded-xl align-items-center justify-items-center">
 					<h2 className="text-2xl mb-5">
