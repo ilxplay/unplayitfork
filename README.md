@@ -1,6 +1,9 @@
 # unplayit
 ## turns your ugly playit ip's with ports (147.157.234.343:3432) to nice and clean minecraft server ip's
 
+# > [!WARNING]
+> user access tokens do expire, which could result in the dns failing, please make an issue if this is the case.
+
 This is a service I'm making for people hosting their minecraft server with playit and struggling with their ip's that look unprofessional.
 The goal is to turn your ip into (whatheveryouwant).join.tectrix.dev so you can have a proper server IP for minecraft servers.
 Support for things other than minecraft java is probably not going to be implemented as minecraft java has the most server hosters using playit.
