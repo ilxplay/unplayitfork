@@ -2,6 +2,7 @@ import { Rubik_Mono_One } from "next/font/google";
 import SignIn from "./sign-in";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../public/logo.png";
 
 const rubikMonoOne = Rubik_Mono_One({
 	subsets: ["latin"],
@@ -14,10 +15,9 @@ export default function Nav() {
 			<Link href="/">
 				<Image
 					className="hidden md:block md:size-20"
-					src="/logo.png"
-					width={512}
-					height={512}
+					src={Logo}
 					alt="logo"
+					placeholder="blur"
 				/>
 			</Link>
 			<h1
