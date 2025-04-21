@@ -44,10 +44,12 @@ export default async function Dash({
 					</p>
 					<div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
 						<p className="text-gray-800 mb-2">
-							<span className="font-semibold">IP:</span> {serverStatus.ip}
+							<span className="font-semibold">IP:</span>{" "}
+							{`${subdomain}.${domain}.tectrix.dev`}
 						</p>
 						<p className="text-gray-800 mb-2">
-							<span className="font-semibold">Port:</span> {serverStatus.port}
+							<span className="font-semibold">OLD IP:</span> {serverStatus.ip}:
+							{port}
 						</p>
 						<p className="text-gray-800 mb-2">
 							<span className="font-semibold">Players:</span>{" "}
