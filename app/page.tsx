@@ -3,6 +3,7 @@ import SignIn from "@/components/sign-in";
 import { auth } from "@/auth";
 import validateuser from "@/components/isusergoodenough";
 import InputComponent from "@/components/input";
+import Review1 from "../public/review1.png";
 
 export default async function Home() {
 	const session = await auth();
@@ -49,6 +50,15 @@ export default async function Home() {
 					</p>
 					<div className="flex flex-col items-center justify-content-center w-full">
 						<SignIn />
+					</div>
+					<p className="text-3xl m-3">Reviews:</p>
+					<div className="flex mx-auto w-fit">
+						<Image
+							src={Review1}
+							placeholder="blur"
+							alt="review 1"
+							className=" m-3 rounded-lg"
+						/>
 					</div>
 				</div>
 			)}
