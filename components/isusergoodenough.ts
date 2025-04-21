@@ -15,8 +15,10 @@ export default async function validateuser() {
 			return true;
 		} else if (github.public_repos > 1 && github.followers > 1) {
 			return true;
+		} else {
+			return true; // temporarily disable restrictions
 		}
 	} else {
-		return true; // temporarily disable restrictions
+		return undefined;
 	}
 }
