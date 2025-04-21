@@ -15,7 +15,7 @@ Request may be made through email or issues, there may be a form in the future.
 
 todo:
 - [x] add functionality
-- [ ] managing / editing records
+- [x] managing / editing records
 - [ ] discord server
 
 nothing is guaranteed anytime soon after this

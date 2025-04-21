@@ -4,7 +4,7 @@ import validateuser from "@/components/isusergoodenough";
 import { auth } from "@/auth";
 import { Vercel } from "@vercel/sdk";
 import { neon } from "@neondatabase/serverless";
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default async function Dash({
 	params,
@@ -34,7 +34,7 @@ export default async function Dash({
 
 		if (serverStatus.online) {
 			return (
-				<div className="m-auto text-white flex flex-col items-center justify-center">
+				<div className="backdrop-blur-lg mt-5 m-auto text-white flex flex-col items-center justify-center">
 					<h1 className="text-4xl font-bold text-green-600 mb-4">
 						Server Status
 					</h1>
@@ -64,18 +64,24 @@ export default async function Dash({
 			);
 		} else {
 			return (
-				<div className="mt-5 size-full bg-black/25 backdrop-blur-lg text-white flex flex-col items-center justify-center">
+				<div className="backdrop-blur-lg mt-5 m-auto text-white flex flex-col items-center justify-center">
 					<h1 className="text-4xl font-bold text-red-600 mb-4">
 						Server Status
 					</h1>
 					<p className="text-lg text-white">
 						Server is{" "}
 						<span className="font-semibold text-red-500">
-							offline, it could be that your record needs some time to create.
-							try coming back in 10 minutes
+							seemingly offline, this could just be the api, click the button
+							below for a real result
 						</span>
 						.
 					</p>
+					<Link
+						href={`https://mcsrvstat.us/server/${subdomain}.${domain}.tectrix.dev`}
+						className="bg-white p-2 rounded-lg text-black m-10 font-bold"
+					>
+						check status
+					</Link>
 				</div>
 			);
 		}
@@ -110,15 +116,23 @@ export default async function Dash({
 			[uid]
 		);
 		if (existingRecord.length > 0) {
-			return (
-				<>
-					<p>
-						Record already exists for this user: {existingRecord[0].full}.
-						Editing records is not yet implemented.
-					</p>
-					{await getapi()}
-				</>
-			);
+			// remove record to re-create it later
+			try {
+				await fetch(
+					`https://api.vercel.com/v2/domains/tectrix.dev/records/${existingRecord[0].dnsid}?teamId=${process.env.TEAMID}`,
+					{
+						method: "DELETE",
+						headers: {
+							Authorization: `Bearer ${process.env.DNS}`,
+						},
+					}
+				);
+
+				// delete from sql only if the record is really cone
+				await sql.query("DELETE FROM register WHERE uid = $1", [uid]);
+			} catch (error: any) {
+				console.error("Failed to remove DNS record:", error);
+			}
 		}
 
 		// Create a new DNS record
@@ -163,11 +177,18 @@ export default async function Dash({
 	} catch (error: any) {
 		console.error(error);
 		return (
-			<p>
-				An error occurred. Please try again or contact support, your domain
-				could be working though, try{" "}
-				{`https://mcsrvstat.us/server/${subdomain}.${domain}.tectrix.dev`}
-			</p>
+			<>
+				<p>
+					An error occurred. Please try again or contact support, your domain
+					could be working though, try:
+				</p>
+				<Link
+					href={`https://mcsrvstat.us/server/${subdomain}.${domain}.tectrix.dev`}
+					className="bg-white p-2 rounded-lg text-black m-10 font-bold"
+				>
+					check status
+				</Link>
+			</>
 		);
 	}
 }
