@@ -13,6 +13,11 @@ Your github account needs to be older than a day to make a subdomain to prevent 
 
 Request may be made through email or issues, there may be a form in the future.
 
+# reviews:
+
+![Screenshot_20250421_225437](https://github.com/user-attachments/assets/a57895b9-a32c-4d38-a7cd-391dfd2916fd)
+
+
 todo:
 - [x] add functionality
 - [x] managing / editing records | 10h 40min (time spent on the project)
