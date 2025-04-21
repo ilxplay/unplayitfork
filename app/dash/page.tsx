@@ -110,7 +110,7 @@ export default async function Dash({
 	const sql = neon(process.env.DATABASE_URL || "");
 
 	try {
-		// Check if a record already exists
+		// Check if the user already has a record
 		const existingRecord = await sql.query(
 			"SELECT * FROM register WHERE uid = $1",
 			[uid]
@@ -128,11 +128,24 @@ export default async function Dash({
 					}
 				);
 
-				// delete from sql only if the record is really cone
+				// delete from sql only if the record is really gone
 				await sql.query("DELETE FROM register WHERE uid = $1", [uid]);
 			} catch (error: any) {
 				console.error("Failed to remove DNS record:", error);
 			}
+		}
+
+		try {
+			const existingRecord = await sql.query(
+				'SELECT * FROM register WHERE "full" = $1',
+				[`${subdomain}.${domain}.tectrix.dev`]
+			);
+			if (existingRecord.length > 0) {
+				return "configuration in use by another user";
+			}
+		} catch (error: any) {
+			console.error(error);
+			return "an error occured while searching for existing records";
 		}
 
 		// Create a new DNS record
