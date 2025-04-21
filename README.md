@@ -14,5 +14,11 @@ Your github account needs to be older than a day to make a subdomain to prevent 
 Request may be made through email or issues, there may be a form in the future.
 
 todo:
-- [ ] add functionality
+- [x] add functionality
+- [ ] managing / editing records
+- [ ] discord server
+
+nothing is guaranteed anytime soon after this
+
+- [ ] ui update
 - [ ] mobile ui improvements
