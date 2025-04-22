@@ -34,7 +34,7 @@ export default async function Home() {
 			) : (
 				<div className="text-center m-5 font-bold bg-black/75 backdrop-blur-lg p-10 rounded-xl align-items-center justify-items-center">
 					<h2 className="text-2xl mb-5">
-						Unplayit - make your minecraft ip great again
+						Unplayit - make your minecraft ip shine
 					</h2>
 					<p>
 						Unplayit is a tool to make your playit server ip into a .tectrix.dev
